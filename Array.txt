@@ -1,0 +1,202 @@
+Array是JS的一种数据结构，也是special Object
+
+
+1. Looping Array Elements 遍历数组的两种方式：
+1) for loop
+
+var fruits, text, fLen, i;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+fLen = fruits.length;
+
+text = "<ul>";
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+结果:
+
+*Banana
+*Orange
+*Apple
+*Mango
+
+2) .forEach()  loop
+
+var fruits, text;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+text = "<ul>";
+fruits.forEach(myFunction);
+text += "</ul>";
+
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+}
+
+
+2. push() 向数组添加元素
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Lemon");    // adds a new element (Lemon) to fruits
+
+-- ["Banana", "Orange", "Apple", "Mango", "Lemon"]
+
+3. 创建新数组
+
+var points = new Array();     // Bad    不要像Java一样 new 一个新对象，会影响代码执行速度
+var points = [];                     // Good 
+
+
+
+
+
+常用的Array methods:
+1) toString() 将数组转为字符串
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+-- Banana,Orange,Apple,Mango
+
+2) join() 将数组连接为字符串
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");
+
+--Banana * Orange * Apple * Mango
+
+3) pop() 弹出数组最后一个元素
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var x = fruits.pop();      // the value of x is "Mango"
+
+
+4) push() 将新元素添加到数组最后
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi");       //  Adds a new element ("Kiwi") to fruits
+
+5) shift() 弹出数组第一个元素
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var x = fruits.shift();    // the value of x is "Banana"
+
+6) splice() 拼接数组
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");
+
+解释：
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+结果：
+Banana,Orange,Lemon,Kiwi,Apple,Mango
+
+7) concat() 合并数组
+
+var myGirls = ["Cecilie", "Lone"];
+var myBoys = ["Emil", "Tobias", "Linus"];
+var myChildren = myGirls.concat(myBoys);   // Concatenates (joins) myGirls and myBoys
+
+-- Cecilie,Lone,Emil,Tobias,Linus
+
+8) slice() 切片数组 
+
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(1);
+
+从index 1处切片数组：
+-- Orange,Lemon,Apple,Mango
+
+
+9) toString() 将数组转换为字符串
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+-- Banana,Orange,Apple,Mango
+
+当需要原始值时，JavaScript自动将数组转换为逗号分隔的字符串,因此上个例子等同于
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+-- Banana,Orange,Apple,Mango
+
+
+
+
+
+数组排序相关:
+
+1) sort() 按字母顺序对数组进行排序
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();        // Sorts the elements of fruits
+
+-- Apple,Banana,Mango,Orange
+
+2) reverse() 反转数组中的元素
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.reverse();     // Then reverse the order of the elements
+
+-- Mango,Apple,Orange,Banana
+
+3) Math.max.apply 用来查找数组中的最高数字
+
+var arr = [40, 100, 1, 5, 25, 10];
+function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+-- 100
+
+
+
+
+
+foeEach() 和map() 函数知识补充：
+
+forEach() 例子：
+
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) { 该函数有3个参数，value数组的值, index索引，array数组自身
+  txt = txt + value + "<br>";
+}
+
+结果txt为:
+
+45
+4
+9
+16
+25
+
+map()的例子：
+
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction); 创建新的数组，不更改原数组
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+
+结果 numbers2为:
+
+[90,8,18,32,50]
+
+
+
+
+
+
+
