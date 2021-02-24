@@ -1,0 +1,16 @@
+<script>可以放在 <head> 或者 <body>之间
+
+也可以放在外部文件中，
+
+1. full URL 完整地址
+
+<script src="https://www.w3schools.com/js/myScript1.js"></script>
+
+2.  folder in current web 当前web的某个文件夹下
+
+<script src="/js/myScript1.js"></script>
+
+3. same folder as current web 和当前web同一个文件夹下
+
+<script src="myScript1.js"></script>
+
