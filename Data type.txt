@@ -1,0 +1,38 @@
+1) JS有七种数据类型：
+
+1. Number
+2. String 
+3. Boolean
+4. Object		Array也被归类为Object
+5. Null
+6. Undefined	var car;    // Value is undefined, type is undefined
+7. Symbol
+
+两个数据结构:
+
+Array
+Object
+
+2) 好用的operator:
+
+typeof "John Doe"     // Returns "string"
+
+
+
+
+3) Null 和 Undefined的区别：
+
+值相等，类型不相等
+
+typeof undefined           // undefined
+typeof null                // object
+
+null === undefined         // false
+null == undefined          // true
+
+4) Primitive data 原始数据,只有值没有属性：with no additional properties and methods
+
+string
+number
+boolean
+undefined
