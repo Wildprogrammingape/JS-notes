@@ -1,0 +1,20 @@
+JS现在有三种scope: global scope, function scope 和 block scope, 其中block scopes 是ES6引进的, 
+
+ES5 的 var 只有 global scope和function scope,因此在for 循环里定义的var变量，外面也可以使用
+
+ES6之后，引进了 let 和 const 解决了这个问题
+
+例子：
+
+var i = 5;
+for (var i = 0; i < 10; i++) {
+  // some statements
+}
+// Here i is 10
+
+
+let i = 5;
+for (let i = 0; i < 10; i++) {
+  // some statements
+}
+// Here i is 5
