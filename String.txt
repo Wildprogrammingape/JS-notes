@@ -1,0 +1,155 @@
+Escape Character 转义符
+
+在 "" 双引号中打 双引号， 单引号， 或 \ 需要这么表达：
+
+Code	Result	Description
+\'	'	Single quote
+\"	"	Double quote
+\\	\	Backslash
+
+
+var x = "We are the so-called "Vikings" from the north.";
+
+-- We are the so-called "Vikings" from the north.
+
+var x = 'It\'s alright.';
+
+-- It's alright.
+
+var x = "The character \\ is called backslash.";
+
+-- The character \ is called backslash.
+
+
+常用的 string method:
+
+1) indexOf()
+
+var str = "Please locate where 'locate' occurs!";
+var pos = str.indexOf("locate");
+-- 7
+var pos = str.indexOf("locate", 15);
+-- 21
+
+2) lastIndexOf()
+
+var str = "Please locate where 'locate' occurs!";
+var pos = str.lastIndexOf("locate");
+-- 21
+
+3) search() 和indexOf() 几乎一样
+区别在于search() 不能指定index后搜索，indexOf() 搜索的值不能是regular expressions
+
+4) 提取extract字符串
+
+有三种方法可以提取字符串的一部分：
+
+*slice(start, end)
+var str = "Apple, Banana, Kiwi";
+var res = str.slice(7, 13);
+-- Banana
+可以有负索引，倒着数
+var str = "Apple, Banana, Kiwi";
+var res = str.slice(-12, -6);
+-- Banana
+
+
+*substring(start, end)  不能有负索引
+var str = "Apple, Banana, Kiwi";
+var res = str.substring(7, 13);
+-- Banana
+
+*substr(start, length) 第二个参数指定了提取部分的长度
+var str = "Apple, Banana, Kiwi";
+var res = str.substr(7, 6);
+-- Banana
+
+5) replace() 字符串替换
+
+str = "Please visit Microsoft!";
+var n = str.replace("Microsoft", "W3Schools");
+-- n为 "Please visit W3Schools!"
+
+6) 大小写 toUpperCase()  toLowerCase()
+
+var text1 = "Hello World!";       // String
+var text2 = text1.toUpperCase();  // text2 is text1 converted to upper
+-- text2 = "HELLO WORLD!"
+
+7) concat() 字符串连接
+
+var text1 = "Hello";
+var text2 = "World";
+var text3 = text1.concat(" ", text2);
+
+-- text3 = "Hello World!"
+
+8) trim() 删除两侧空格
+
+var str = "       Hello World!        ";
+alert(str.trim());
+-- Hello World!
+
+9) 提取字符 extract character
+
+有三种提取字符串字符的方法：
+
+*charAt(position)	某Index处的字符
+
+var str = "HELLO WORLD";
+str.charAt(0);            // returns H
+
+
+*charCodeAt(position) 	返回 unicode
+var str = "HELLO WORLD";
+
+str.charCodeAt(0);         // returns 72
+
+
+*Property access [ ]     直接通过Index获取字符
+
+var str = "HELLO WORLD";
+str[0];                   // returns H
+
+10) split() 将字符串转换为数组
+
+var txt = "a,b,c,d,e";   // String
+txt.split(",");          // Split on commas
+
+-- [a,b,c,d,e]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
