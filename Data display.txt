@@ -1,0 +1,23 @@
+JS有四种输出数据的方式：
+
+1. "innerHTML" : 
+
+改变HTML内容，通常与 JS HTML method "document.getElementById(id)" 搭配使用
+
+<script>
+document.getElementById("demo").innerHTML = 5 + 6;
+</script>
+
+2. document.write() : 
+
+用于测试，会删除所有现有的HTML
+
+<button type="button" onclick="document.write(5 + 6)">Try it</button>
+
+3. window.alert()
+
+弹出框，可以省略window
+
+4. console.log()
+
+用于debug
