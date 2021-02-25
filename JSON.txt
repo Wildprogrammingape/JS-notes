@@ -1,0 +1,27 @@
+JSON全程为 JavaScript Object Notation，是存储和传输数据的格式(format of storing and transporting data)
+
+当我们从server服务器获取data,并展示到web端时，会用JSON.
+
+语法：
+
+和JS的Object类似，也是 property - value的组合，只是"property"需要加双引号
+
+例子：
+
+{
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}
+
+简化为:
+
+{
+"property1": value1,
+"property2": value2,
+ .......
+}
+
+
