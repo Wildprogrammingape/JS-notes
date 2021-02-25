@@ -1,0 +1,30 @@
+两种for循环，
+
+1) for in 是获得key，用于Object或数组
+
+例子:
+var person = {fname:"John", lname:"Doe", age:25};
+
+var text = "";
+var x;
+for (x in person) {
+  text += person[x];
+}
+--
+John Doe 25
+
+2) for of 是获得值
+
+例子:
+
+let cars = ["BMW", "Volvo", "Mini"];
+let text = "";
+
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+--
+BMW
+Volvo
+Mini
