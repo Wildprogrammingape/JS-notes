@@ -1,0 +1,35 @@
+this关键词在不同位置指代不同
+
+1) 在method中， this 指的是 该method的owner所有者
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+-- this 是 firstName和lastName method的所有者，即为 person Object
+
+2) 在event事件中， this指的是 收到该event的HTML element
+
+<button onclick="this.style.display='none'">
+  Click to Remove Me!
+</button>
+
+-- 收到onclick这个event的是button元素，因此this指的是button, 点击后按钮消失
+
+3) this单独使用，或 function中，this的所有者是global object，即为 window object
+
+var x = this;
+-- [object Window]
+
+function myFunction() {
+  return this;
+}
+-- [object Window]   (this指的是myFunction()的拥有者，就是window object)
+
+
+然而，在arrow function中，this 只为 拥有该 arrow function的object，一般为window object
