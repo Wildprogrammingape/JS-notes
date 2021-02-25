@@ -1,0 +1,47 @@
+ES6也引入了class类的概念，用法和Java一样
+
+
+1) 语法：
+
+class ClassName {
+  constructor() { ... }
+  method(){ ... }
+}
+
+例子：
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+创建一个名为“ Car”的类，instance variable 为 name 和 year
+
+然后，我们可以用该class new一个object
+
+let myCar1 = new Car("Ford", 2014);
+let myCar2 = new Car("Audi", 2019);
+
+例子： 
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML =
+myCar.name + " " + myCar.year;
+</script>
+
+-- Ford 2014
+
+
+2) constructor
+
+new 新的object时自动执行，如果没有construtor则 添加一个empty constructor
