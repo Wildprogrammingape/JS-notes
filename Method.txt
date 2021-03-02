@@ -1,0 +1,35 @@
+Object method 对象方法, 在对象中存在的method
+
+Methods are functions stored as object properties. (method是作为property存在于object中的function)
+
+在JS中所有的function都是method, 因为不是在object中就是在global object 中
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;  // this指的是owner of the fullName function, 即为person Object
+  }
+};
+
+
+1) method() 和 method
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+name = person.fullName();
+>> John Doe (正常的method使用方式)
+name = person.fullName;
+>> function() { return this.firstName + " " + this.lastName; } (返回function definition)
+
+
+
+
