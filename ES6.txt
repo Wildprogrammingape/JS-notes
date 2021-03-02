@@ -1,0 +1,334 @@
+ECMAScript 6 was the second major revision to JavaScript.
+
+ECMAScript 6 is also known as ES6 and ECMAScript 2015.
+
+This chapter describes the most important features of ES6.
+
+New Features in ES6:
+
+The let keyword
+The const keyword
+JavaScript Arrow Functions
+JavaScript For/of
+JavaScript Classes
+JavaScript Promises
+JavaScript Symbol
+Default Parameters
+Function Rest Parameter
+Array.find()
+Array.findIndex()
+New Math Methods
+New Number Properties
+New Number Methods
+New Global Methods
+JavaScript Modules
+
+1) let : declare a variable with block scope
+
+var x = 10;
+// Here x is 10
+{
+  let x = 2;
+  // Here x is 2
+}
+// Here x is 10
+
+2) const: declare a constant with block scope
+
+var x = 10;
+// Here x is 10
+{
+  const x = 2;
+  // Here x is 2
+}
+// Here x is 10
+
+3) Arrow Functions 
+
+箭头函数允许使用简短的语法编写函数表达式, 不需要function关键字，return关键字和 大括号
+
+// ES5
+var x = function(x, y) {
+   return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;
+使用const 更加安全，因为函数表达式始终是一个常数值
+
+4) For-Of Loop
+
+JavaScript for/of语句遍历可迭代对象的值。
+
+for/of 使您可以遍历可迭代的数据结构，例如数组，字符串，映射，NodeList等。
+
+例子1：
+
+var cars = ["BMW", "Volvo", "Mini"];
+var x;
+
+for (x of cars) {
+  document.write(x + "<br >");
+}
+
+-- 
+BMW
+Volvo
+Mini
+
+例子2：
+
+var txt = "JavaScript";
+var x;
+
+for (x of txt) {
+  document.write(x + "<br >");
+}
+
+-- 
+J
+a
+v
+a
+S
+c
+r
+i
+p
+t
+
+5) class 创建一个类, 搭配constructor() 使用
+
+例子： 创建一个名为“ Car”的类, 该类具有两个初始属性 (initial property)：“name”和“year”
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+6) Promise
+
+Promise是一个JavaScript对象，用来“producing code”和“comsuming code”。
+
+“生产代码”可能需要一些时间，“消费代码”必须等待结果
+
+例子：
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function(){ myResolve("I love You !!"); }, 3000);
+});
+
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+);
+
+-- I love You !! (延迟3秒后显示)
+
+7) Symbol 创建唯一标识符
+
+是一种原始数据类型，就像Number，String或Boolean一样。
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+let id = Symbol('id');
+person[id] = 140353;
+
+// Now Person[id] = 140352
+// but person.id is still undefined
+
+
+8) Default Parameter Values 函数参数默认值
+
+function myFunction(x, y = 10) {
+  // y is 10 if not passed or undefined
+  return x + y;
+}
+myFunction(5); // will return 15
+
+9) Function Rest Parameter (...)  三个点符号允许函数将不确定数量的参数视为数组
+
+function sum(...args) {
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+
+let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+
+-- 326
+
+10) find() 返回通过测试函数的第一个值
+
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+--  25
+
+11) findIndex()  方法返回通过测试函数的第一个索引
+
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+-- 3
+
+12) New Math Methods 新的数学函数
+
+Math.trunc(x) 返回x的整数部分
+Math.trunc(4.9);    // returns 4
+
+Math.sign(x) 如果x是负数，null或正数，则返回：
+Math.sign(-4);    // returns -1
+Math.sign(0);    // returns 0
+
+Math.cbrt(x) 返回x的立方根
+Math.cbrt(8);    // returns 2
+
+Math.log2(x) 返回x的以2为底的对数
+Math.log2(2);    // returns 1
+
+13) New Number Properties
+
+ES6向Number对象添加了以下属性：
+
+EPSILON
+MIN_SAFE_INTEGER
+MAX_SAFE_INTEGER
+
+14) New Number Methods
+
+Number.isInteger()  如果参数是整数返回true
+Number.isInteger(10);        // returns true
+Number.isInteger(10.5);      // returns false
+
+Number.isSafeInteger()  如果参数是一个安全的整数返回true
+Number.isSafeInteger(10);    // returns true
+Number.isSafeInteger(12345678901234567890);  // returns false
+
+15) New Global Methods 新的全局method
+
+isFinite() returns false if the argument is Infinity or NaN 判断无穷大
+isFinite(10/0);       // returns false
+isFinite(10/1);       // returns true
+
+isNaN() returns true if the argument is NaN. Otherwise it returns false 判断NaN
+isNaN("Hello");       // returns true
+
+
+16) JS 2016 新特性
+
+--JavaScript Exponentiation (**) 
+
+let x = 5;
+let z = x ** 2;          // result is 25
+
+--JavaScript Exponentiation assignment (**=)
+
+let x = 5;
+x **= 2; // result 25
+
+--JavaScript Array.prototype.includes
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits.includes("Mango"); // is true
+
+17) JS 2017 新特性
+
+--JavaScript String padding
+
+let str = "5";
+str = str.padStart(4,0);
+// result is 0005
+
+--JavaScript Object.entries 用来输出Object
+
+const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+document.getElementById("demo").innerHTML = Object.entries(person);
+
+>> firstName,John,lastName,Doe,age,50,eyeColor,blue
+
+
+--JavaScript Object.values 用来输出Object的值
+
+const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+document.getElementById("demo").innerHTML = Object.values(person);
+
+>> John,Doe,50,blue
+
+
+--JavaScript async functions 异步功能
+
+async function myDisplay() {
+  let myPromise = new Promise(function(myResolve, myReject) {
+    setTimeout(function() { myResolve("I love You !!"); }, 3000);
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+myDisplay();
+
+>> I love You !! 三秒后显示
+
+18) JS 2018 新特性
+
+--Asynchronous Iteration 异步迭代
+
+对于异步可迭代，我们可以await 在for/of循环中使用关键字。
+for await () {}
+
+--Promise Finally : promise中可以使用finally()
+
+let myPromise = new Promise();
+
+myPromise.then();
+myPromise.catch();
+myPromise.finally();
+
+--Object Rest Properties 对象的...属性: 用来destruct 一个对象并将剩余的东西收集到一个新的对象上
+
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x; // 1
+y; // 2
+z; // { a: 3, b: 4 }
+
+--New RegExp Features : RegExp的新功能
+
+ECMAScript 2018添加了4个新的RegExp功能：
+
+Unicode Property Escapes (\p{...})
+Lookbehind Assertions (?<= ) and (?<! )
+Named Capture Groups
+s (dotAll) Flag
+
+
+
+
+
+
+
+
