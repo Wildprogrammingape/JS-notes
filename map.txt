@@ -1,0 +1,32 @@
+map():
+
+execute a given function on every element from an array and returns a new array
+
+对原array的每一个元素执行function，最终返回一个新array
+
+例子
+
+1) 用map function将数组每一个元素乘以2
+
+const numbers = [1,2,3,4,5]
+
+const numbersDouble = numbers.map(double);
+
+function double(value, index, arr){
+   return value*2;
+}
+
+console.log(numbersDouble);
+
+-- [2, 4, 6, 8, 10]
+
+2) 将字符型数组转化成数字型数组
+
+const str = ['1', '2', '3', '4', ];
+
+const numbers = str.map(item => Number(item)); 
+
+(用arrow function将原数组每一个元素item转化成数字型Number(item))
+
+console.log(numbers);
+-- [1, 2, 3, 4]
