@@ -1,0 +1,58 @@
+Property是对象中最重要的部分
+
+Object is collection of unordered properties (对象是无序property的组合)
+
+1) Access property
+
+语法:
+
+The syntax for accessing the property of an object is:
+
+-- objectName.property         // person.age (常见)
+-- objectName["property"]      // person["age"]
+
+
+例子:
+
+var person = {
+  firstname:"John",
+  lastname:"Doe",
+  age:50,
+  eyecolor:"blue"
+};
+
+person["firstname"] + " is " + person["age"] + " years old.";
+
+>> John is 50 years old.
+
+
+2) for...in Loop用于遍历对象的property
+
+var person = {fname:"John", lname:"Doe", age:25};
+var txt = "";
+var x;
+
+for (x in person) {
+  txt += person[x] + " ";  	// x是对象的property
+}
+
+>>  John Doe 25
+
+3) 添加和删除property
+
+添加: person.hobby = "basketball";
+删除: delete person.hobby;             // 等同于 delete perspn["age"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
