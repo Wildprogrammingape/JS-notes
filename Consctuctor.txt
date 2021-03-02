@@ -1,0 +1,44 @@
+1) 用构造函数创建object
+
+// Constructor function for Person objects
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+// Create two Person objects
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
+
+// Display age
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + ". My mother is " + myMother.age + "."; 
+
+
+-- My father is 50. My mother is 48.
+
+
+2) built-in Object
+
+使用Literal的方式创建对象，不要new 
+
+Use object literals {} instead of new Object().
+
+Use string literals "" instead of new String().
+
+Use number literals 12345 instead of new Number().
+
+Use boolean literals true / false instead of new Boolean().
+
+Use array literals [] instead of new Array().
+
+Use pattern literals /()/ instead of new RegExp().
+
+Use function expressions () {} instead of new Function().
+
+
+
+
+
