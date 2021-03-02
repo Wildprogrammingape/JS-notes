@@ -1,0 +1,212 @@
+ECMAScript 2009, also known as ES5, was the first major revision to JavaScript.
+
+This chapter describes the most important features of ES5.
+
+大纲:
+"use strict"
+String.trim()
+Array.isArray()
+Array.forEach()
+Array.map()
+Array.filter()
+Array.reduce()
+Array.reduceRight()
+Array.every()
+Array.some()
+Array.indexOf()
+Array.lastIndexOf()
+JSON.parse()
+JSON.stringify()
+Date.now()
+Property Getters and Setters
+New Object Property Methods
+
+1) "use strict"   定义JavaScript代码应在“严格模式”下执行
+
+2) String.trim()  从字符串的两边删除空格
+
+var str = "       Hello World!        ";
+alert(str.trim());
+
+-- Hello World!
+
+3) isArray() 检查对象是否为数组
+
+function myFunction() {
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  var x = document.getElementById("demo");
+  x.innerHTML = Array.isArray(fruits);
+}
+
+-- true
+
+4) forEach() 为每个数组元素调用一次你写的函数
+
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+
+function myFunction(value) {
+  txt = txt + value + "<br>";
+}
+
+-- 
+45
+4
+9
+16
+25
+
+5) map() 对原数组每一个元素执行你写的函数，返回一个新数组
+
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+document.getElementById("demo").innerHTML = numbers2;
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+
+-- [90, 8, 18, 32, 50]
+
+6) filter() 对原数组每一个元素执行你写的函数，返回一个新数组
+
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+document.getElementById("demo").innerHTML = Array.isArray(over18);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+--
+[45, 25]
+
+7) reduce()对数组每个元素上执行（提供的）reduce函数，返回一个值
+
+var numbers = [45, 4, 9, 16, 25];
+var sum = numbers.reduce(myFunction);
+
+document.getElementById("demo").innerHTML =  sum;
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+
+-- 15
+
+MDN上的例子，用arrow function写函数：
+
+const array1 = [1, 2, 3, 4];
+
+const myFunc = (accumulator, currentValue) => accumulator + currentValue;
+
+
+
+// 1 + 2 + 3 + 4
+
+console.log(array1.reduce(myFunc));
+
+-- 10
+
+
+
+8) every() 对数组每个元素上执行（提供的）check函数，全部符合条件返回true
+
+var numbers = [45, 4, 9, 16, 25];
+var allOver18 = numbers.every(myFunction);
+
+document.getElementById("demo").innerHTML = "All over 18 is " + allOver18;
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+-- All over 18 is false
+
+9) some() every() 对数组每个元素上执行（提供的）check函数，有符合条件的返回true or false
+
+var numbers = [45, 4, 9, 16, 25];
+var allOver18 = numbers.some(myFunction);
+
+document.getElementById("demo").innerHTML = "Some over 18 is " + allOver18;
+
+function myFunction(value) {
+  return value > 18;
+}
+
+-- Some over 18 is true
+
+10) indexOf() 返回对应index
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple");
+
+-- 2
+
+11) lastIndexOf() 从后往前搜索
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple");
+
+-- 1
+
+12) JSON.parse() 将JSON数据转换为Object格式
+
+从服务器端获得的JSON数据 Imagine you received this text string from a web server:
+
+'{"name":"John", "age":30, "city":"New York"}'
+
+var obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+
+--  
+转换成了对象
+obj = {name:"John", age:30, city:"New York"};
+
+13) JSON.stringify() 将object转换成JSON
+
+var obj = { name: "John", age: 30, city: "New York" };
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+
+-- {"name":"John","age":30,"city":"New York"}
+
+14) Date.now() 返回自零日期（1月1日。1970年00:00:00 UTC）以来的毫秒数
+
+var timInMSs = Date.now();
+-- 1614619216818
+
+15) setter() and getter()
+
+本示例为language属性创建一个setter和一个getter：
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+  get lang() {
+    return this.language;
+  },
+  set lang(value) {
+    this.language = value;
+  }
+};
+
+// Set an object property using a setter:
+person.lang = "en";
+
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.lang;
+
+-- en
+
+16) Object.defineProperty() 是ES5中的新Object方法, 可以定义对象属性
+
+17) charAt() 返回字符串中指定索引处的字符
+
+var str = "HELLO WORLD";
+str.charAt(0);            // returns H
+
+该操作等同于直接的 str[0] -- H , 因为ES5允许对字符串直接访问
