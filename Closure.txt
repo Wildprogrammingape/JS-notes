@@ -1,0 +1,26 @@
+Closure is a function having access to the parent scope, even though the parent function has closed.
+
+闭包指的是嵌套的函数，拥有上一层self-invoking function的scope，而自调用函数只执行一次。这样让function中的variable有了private scope.
+
+
+例子: 
+
+计数器
+
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+})();
+
+add();
+add();
+add();
+
+// the counter is now 3
+
+
+解释：
+
+add() 函数实际上是内嵌函数  function () {counter += 1; return counter} , 外层self-invoking 函数只执行一次让counter初始值为0。
+
+闭包处理就是内嵌一个函数，让他的变量有上一层function的scope
