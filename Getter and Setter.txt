@@ -1,0 +1,32 @@
+JavaScript Function or Getter
+
+1) JS function 方式
+
+Example 1 access fullName as a function: person.fullName(): 
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object using a method:
+document.getElementById("demo").innerHTML = person.fullName();
+
+
+2) Getter
+
+Example 2 access fullName as a "property": person.fullName 语法更简洁: 
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  get fullName() {         这里依然是property-value的形式，不是function
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.fullName;
