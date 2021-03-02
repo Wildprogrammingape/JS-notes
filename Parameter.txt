@@ -1,0 +1,24 @@
+1) 调用函数时候参数可以不完整
+
+function myFunction(x, y) {
+  if (y === undefined) {
+    y = 2;
+  }  
+  return x * y;
+}
+document.getElementById("demo").innerHTML = myFunction(4);
+
+-- 8
+
+2) 函数定义时可设置参数值
+
+function myFunction(x, y = 2) {
+  return x * y;
+}
+document.getElementById("demo").innerHTML = myFunction(4);
+
+- 8
+
+3) Argument passed by Value, Object passed by reference
+
+参数只是一个值，不知道地址; 而传递对象时只是地址，所以会取别名
