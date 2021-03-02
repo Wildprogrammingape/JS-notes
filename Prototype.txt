@@ -1,0 +1,38 @@
+所有JavaScript对象都从原型继承property和method:
+
+
+所有JavaScript对象都从原型继承属性和方法：
+
+Date 对象继承自 Date.prototype
+Array 对象继承自 Array.prototype
+Person 对象继承自 Person.prototype
+该Object.prototype是对原型继承链的顶端。
+
+Date对象，Array对象和Person对象都继承自Object.prototype
+
+
+因此，JavaScriptprototype属性允许您向对象构造函数添加新属性：
+
+1) 在constructor外添加property
+
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.nationality = "English"; (等同于在constructor中添加 this.nationality="English")
+
+2) 在constructor外添加method
+
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName; 
+};
