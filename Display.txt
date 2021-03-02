@@ -1,0 +1,68 @@
+显示 Object的四种方式 :
+
+
+1) Properties by name  
+
+用object.name的方式
+
+var person = {name:"John", age:30, city:"New York"};
+
+document.getElementById("demo").innerHTML =
+person.name + "," + person.age + "," + person.city;
+
+-- John,50,New York
+
+2) Properties in a Loop
+
+用for in Loop遍历object[property]的方式
+
+var x, txt = "";
+var person = {name:"John", age:30, city:"New York"};
+
+for (x in person) {
+txt += person[x] + " ";
+};
+
+document.getElementById("demo").innerHTML = txt;
+
+-- John 50 New York
+
+3) Object.values()
+
+用object.value() method转化为Array的方式,但只能获得对象中的value
+
+var person = {name:"John", age:50, city:"New York"};
+
+var myArray = Object.values(person);
+document.getElementById("demo").innerHTML = myArray;
+
+-- John,50,New York
+
+4) JSON.stringify()
+
+用JSON.stringify() method转换为 String的方式
+
+var person = {name:"John", age:30, city: "New York"};
+
+var myString = JSON.stringify(person);
+document.getElementById("demo").innerHTML = myString;
+
+-- {"name":"John","age":50,"city":"New York"}  (这是个JSON表示法之后的字符串string)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
