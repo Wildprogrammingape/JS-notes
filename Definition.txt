@@ -1,0 +1,72 @@
+在JavaScript中，对象为王。如果您了解对象，那么您就会了解JavaScript。
+
+在JavaScript中，几乎“一切”都是对象。
+
+Boolean可以是对象（如果使用new关键字定义）
+Number可以是对象（如果使用new关键字定义）
+String可以是对象（如果使用new关键字定义）
+Date始终是对象
+Math永远是对象
+Regular expression始终是对象
+Array始终是对象
+Function始终是对象
+Object永远是对象
+
+除primitive原始数据外，所有JavaScript值都是对象。
+
+有五种premitive原始数据类型:
+
+string
+number
+boolean
+null
+undefined
+
+
+1) 创建一个object
+
+直接用object literal创建，不要用new 
+
+var person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+
+2) 对象是property-value的组合
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+即为：
+
+Property		Value
+
+firstName		John
+lastName		Doe
+age		50
+eyeColor		blue
+
+和 Java中的hash map一样
+
+3) 取别名
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+
+var x = person;   // x只是person对象的另一个索引，和 Java一样
+x.age = 10;           // This will change both x.age and person.age
+
+>>
+person = {firstName:"John", lastName:"Doe", age:10, eyeColor:"blue"}
+
+
+
+
+
+
+
+
+
+
+
