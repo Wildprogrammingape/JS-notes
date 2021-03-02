@@ -1,0 +1,97 @@
+JavaScript表单验证
+
+HTML表单验证可以通过JavaScript完成。
+
+如果表单字段（fname）为空，则此函数将警告消息并返回false，以防止提交表单：
+
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+
+1)验证数字输入:
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x, text;
+
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+2) JavaScript Validation API
+
+约束验证DOM方法
+
+Property			Description
+
+checkValidity()		Returns true if an input element contains valid data.
+setCustomValidity()		Sets the validationMessage property of an input element.
+rangeOverflow		Set to true, if an element's value is greater than its max attribute.
+
+例子: checkValidity() 如果输入包含无效数据，则显示一条消息：
+
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var inpObj = document.getElementById("id1");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("demo").innerHTML = inpObj.validationMessage;
+  }
+}
+</script>
+
+-- 输入为空时: Please fill in this field.
+
+
+
+例子: rangeOverflow 输入溢出
+
+如果输入字段中的数字大于100（输入的max 属性），则显示一条消息：
+
+rangeOverflow属性
+<input id="id1" type="number" max="100">
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var txt = "";
+  if (document.getElementById("id1").validity.rangeOverflow) {
+    txt = "Value too large";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+-- 输入大于100时，显示消息: Value too large
+
+
+
+
+
+
