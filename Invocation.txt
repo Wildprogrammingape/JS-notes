@@ -1,0 +1,96 @@
+函数中的this:
+
+1) this 的 owner是对象
+
+var myObject = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+myObject.fullName();         // Will return "John Doe"
+
+
+2) this 的 owner是global window
+
+var myObject = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this;
+  }
+}
+myObject.fullName();          // Will return [object Object] (the owner object)
+
+3) call() method 在一个对象上使用另一个对象的method
+
+例子:
+
+在person1上使用person的fullName方法
+
+var person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+person.fullName.call(person1);  // Will return "John Doe"
+
+person.fullName.call(person2);  // Will return "Mary Doe"
+
+
+
+带参数的call() 例子:
+
+在person1上调用person的fullName method
+
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");
+
+
+-- John Doe Oslo Norway
+
+
+4) apply() 在一个对象上使用另一个对象的method
+
+和 call() 一样, 唯一的区别是apply() 将参数作为数组 takes arguments as an array
+
+例子：
+
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.apply(person1, ["Oslo", "Norway"]);
+
+--John Doe,Oslo,Norway
+
+
+5) Math.max() 数组中最大值
+
+由于JS的数组没有max() 函数, 所以用在数组中时候需要这么用：
+
+Math.max(1,2,3);  // Will return 3      普通的max用法
+
+Math.max.apply(null, [1,2,3]); // Will also return 3    在数组中的用法,第一个参数不重要随便设
