@@ -1,0 +1,76 @@
+async 和 await 让 promise 更方便使用，不需要繁琐的语法
+
+async makes a function return a Promise  -- async让function 返回 promise
+
+await makes a function wait for a Promise -- await让function 等待 promise
+
+
+1) async 
+
+用在function之前, 用于让function返回 promise
+
+例子： 
+
+async function myFunction() {
+  return "Hello";                     // 等同于 return Promise.resolve("Hello");  这里的Promise.resolve() 可以省略
+}
+
+
+完整的例子：
+
+async function myFunction() {
+  return "Hello";  // 这里等同于Promise.resolve() 的 value 为"Hello"
+}
+myFunction().then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+
+
+>> Hello
+
+2) await   
+
+用在async function里面, 用于等待 promise
+
+简单的例子:
+
+async function myDisplay() {        // 这是async function 用于返回promise 
+  let myPromise = new Promise(function(myResolve, myReject) {   // 定义一个promise对象, 并定义myResolve的value
+    myResolve("I love You !!");            
+  });
+  document.getElementById("demo").innerHTML = await myPromise;  // 返回myPromise对象, 不需要myFunction().then
+}
+
+myDisplay();
+
+-- I love You !!
+
+
+Waiting for a Timeout例子:
+
+async function myDisplay() {    // async function, 返回promise
+  let myPromise = new Promise(function(myResolve, myReject) {   // myPromise对象,
+    setTimeout(function() { myResolve("I love You !!"); }, 3000);       // 三秒后给myResolve() value为 "I love You !!"
+  }); 
+  document.getElementById("demo").innerHTML = await myPromise;   // 等待并最终返回 promise 对象
+}
+
+myDisplay();
+
+
+-- I love You !! (三秒后)
+
+-- 如果去掉await的话结果为[object Promise], 就获取不到value了因为没有等待promise
+
+
+
+
+
+
+
+
+
+
+
+
