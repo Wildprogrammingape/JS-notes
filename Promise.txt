@@ -1,0 +1,110 @@
+What is a Promise?
+
+- A promise is an object that produces a value after some time: either a resolved value, or a reason that its not resolved (e.g., a network error occurred)
+
+什么是Promise?
+
+Promise是一个对象在一定时间后产生一个value，这个值可以是resolved value，也可能是error message
+
+语法:
+
+let myPromise = new Promise(function(myResolve, myReject) {  定义一个promise 对象
+// "Producing Code" (May take some time)    过一段时间后
+
+  myResolve(); // when successful         成功时执行
+  myReject();  // when error   	              不成功时执行
+});         // promise对象到这里结束
+
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+  function(value) { /* code if successful */ },           这里的value从myResolve()中获取
+  function(error) { /* code if some error */ }          这里的error从myReject()中获取
+);
+
+
+例子:
+
+setTimeout() 延时两种实现方式: callback 和 promise
+
+1) callback 来实现
+
+setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+
+function myFunction(value) {
+  document.getElementById("demo").innerHTML = value;
+}
+
+
+这里的function() { myFunction("I love You !!!"); } 函数作为setTimeout()的参数, 实现callback
+
+2) promise 来实现
+
+let myPromise = new Promise(function(myResolve, myReject) {  定义一个promise 对象
+
+  setTimeout(function() { myResolve("I love You !!"); }, 3000);       过一段时间后，成功执行时myResolve() 的 value为 "I love You !!"
+});						                             这里没考虑myReject() 的 error
+
+myPromise.then(function(value) {                                                 用Promise.then()使用promise
+  document.getElementById("demo").innerHTML = value;           这里的value是myResolve的值
+});
+
+
+
+
+
+
+
+
+另一个例子:
+
+Waiting for a file两种实现方式: callback 和 promise
+
+1) callback 来实现
+
+function getFile(myCallback) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myCallback(req.responseText);
+    } else {
+      myCallback("Error: " + req.status);
+    }
+  }
+  req.send();
+}
+
+getFile(myDisplayer);
+
+2) promise 来实现
+
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.htm");
+  req.onload = function() {
+    if (req.status == 200) {
+      myResolve(req.response);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send();
+});
+
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+
+
+
+
+
+
+
+
+
+
+
+
