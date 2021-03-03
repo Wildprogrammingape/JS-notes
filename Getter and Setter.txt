@@ -1,32 +1,63 @@
-JavaScript Function or Getter
+Getter和Setter使用关键字 get 和 set，在调用时不加括号 ()
 
-1) JS function 方式
+JS类中的变量property也就是Java中的instance variable，
 
-Example 1 access fullName as a function: person.fullName(): 
+只不过Java要在class和constructor之间先定义这些实例变量
 
-var person = {
-  firstName: "John",
-  lastName : "Doe",
-  fullName : function() {
-    return this.firstName + " " + this.lastName;
+例子：
+
+1) 使用getter
+
+class Car {
+  constructor(brand) {
+    this._carname = brand;  // _carname是Car 类的property，加下划线为了区分getter setter method
   }
-};
-
-// Display data from the object using a method:
-document.getElementById("demo").innerHTML = person.fullName();
-
-
-2) Getter
-
-Example 2 access fullName as a "property": person.fullName 语法更简洁: 
-
-var person = {
-  firstName: "John",
-  lastName : "Doe",
-  get fullName() {         这里依然是property-value的形式，不是function
-    return this.firstName + " " + this.lastName;
+  get carname() {
+    return this._carname;
   }
-};
+  set carname(x) {
+    this._carname = x;
+  }
+}
 
-// Display data from the object using a getter:
-document.getElementById("demo").innerHTML = person.fullName;
+let myCar = new Car("Ford");
+
+document.getElementById("demo").innerHTML = myCar.carname;
+
+-- Ford
+
+2) 使用setter
+
+
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+let myCar = new Car("Ford");
+
+myCar.carname = "Volvo";   // 这样调用setter, 不可加括号
+
+document.getElementById("demo").innerHTML = myCar.carname;
+
+-- Volvo
+
+
+
+
+
+
+
+
+
+
+
+
+
