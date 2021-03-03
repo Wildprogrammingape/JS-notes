@@ -1,0 +1,119 @@
+Asynchronous functions
+
+与其他函数并行运行的函数成为异步函数
+
+Functions running in parallel with other functions are called asynchronous
+
+应用的场景：
+
+1) setTimeout() 延时函数
+
+例子：
+
+延时3s执行myFunction 函数, 其中myFunction作为callback
+
+setTimeout(myFunction, 3000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}
+
+-- I love You !!!
+
+另一种函数写法：
+
+setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+
+function myFunction(value) {
+  document.getElementById("demo").innerHTML = value;
+}
+
+这里的 function() { myFunction("I love You !!!"); } 是一个完整的函数 function expression,
+作用是执行 myFunction(" ... ")
+
+
+2) setInterval() 延时函数
+
+例子: 每隔1s显示当前的时间, 其中myFunction是callback
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript setInterval()</h2>
+
+<p>Using setInterval() to display the time every second (1000 milliseconds).</p>
+
+<h1 id="demo"></h1>
+
+<script>
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+</script>
+
+</body>
+</html>
+
+-- 16:35:15
+
+
+
+
+
+3) Waiting for Files to load 等待文件加载完成后再display
+
+例子: loads a HTML file (mycar.html), and displays the HTML file until fully loaded
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function getFile(myCallback) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myCallback(this.responseText);
+    } else {
+      myCallback("Error: " + req.status);
+    }
+  }
+  req.send();
+}
+
+getFile(myDisplayer);
+
+
+--
+mycar.html: 
+
+<img src="img_car.jpg" alt="Nice car" style="width:100%">
+
+<p>A car is a wheeled, self-powered motor vehicle used for transportation.
+Most definitions of the term specify that cars are designed to run primarily on roads, to have seating for one to eight people, to typically have four wheels.</p>
+
+<p>(Wikipedia)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
