@@ -1,0 +1,68 @@
+Class Inheritance 类继承用 extend 关键字
+
+
+1) class A extends B { ... }    代表A是child class, B 是 parent class
+2) super()   调用parent class的 constructor
+3) child class inherit all methods from parent class 子类继承母类的所有method
+
+
+
+
+例子
+
+创建一个名为“ Model”的类，它将继承“ Car”类的方法：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Class Inheritance</h2>
+
+<p>Use the "extends" keyword to inherit all methods from another class.</p>
+<p>Use the "super" method to call the parent's constructor function.</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {    	母类
+  constructor(brand) {
+    this.carname = brand;  // this.carname = "Ford"
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends Car {      子类
+  constructor(brand, mod) {
+    super(brand);        调用母类的constructor
+    this.model = mod;     // this.model = "Mustang"
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;  // I have a Ford, it is a Mustang
+  }
+}
+
+let myCar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = myCar.show(); 
+</script>
+
+</body>
+</html>
+
+-- I have a Ford, it is a Mustang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
