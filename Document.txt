@@ -1,0 +1,22 @@
+HTML DOM document 对象是其他所有对象的owner (在DOM中，所有HTML element都是object)
+
+换句话说，document object 代表的是 web page
+
+所以, 要访问任何HTML element都要从 document.XXX 开始
+
+常用的method:
+
+查找元素 Finding HTML Elements :
+
+Method					Description
+
+document.getElementById(id)			Find an element by element id
+document.getElementsByTagName(name)	Find elements by tag name
+document.getElementsByClassName(name)	Find elements by class name
+
+
+添加事件处理 Adding Events Handlers:
+
+Method						Description
+
+document.getElementById(id).onclick = function(){}	event handler onclick event
