@@ -1,0 +1,44 @@
+AJAX全称是 Asynchronous JavaScript And XML，是browser 访问 server的技术
+
+有了AJAX，页面加载后，从server读取数据，更新网页 update 而不重新加载 reload 网页
+
+
+具体流程：
+
+1.网页中发生事件（页面已加载，单击了按钮）
+2. JavaScript创建一个XMLHttpRequest对象
+3. XMLHttpRequest对象将请求发送到Web服务器
+4.服务器处理请求
+5.服务器将响应发送回网页
+6.响应由JavaScript读取
+7. JavaScript执行适当的操作（例如页面更新）
+
+
+
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

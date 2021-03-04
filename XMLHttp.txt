@@ -1,0 +1,12 @@
+AJAX的重点是XMLHttpRequest对象。
+
+XMLHttpRequest与Web服务器直接交换数据。这样可以更新网页的某些部分，而无需重新加载整个页面。
+
+1) 创建一个XMLHttpRequest对象
+
+var xhttp = new XMLHttpRequest();
+
+
+2) Fetch API
+
+现代浏览器可以使用Fetch API代替XMLHttpRequest对象
