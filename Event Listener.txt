@@ -1,0 +1,51 @@
+addEventListener() method 可以让多个 event handler 到一个element上，而不会覆盖程序
+
+语法:
+
+element.addEventListener(event, function, useCapture);
+
+第一个参数是事件的类型（例如“ click”或“ mousedown”或任何其他HTML DOM Event。）
+
+第二个参数是事件发生时我们要调用的函数。
+
+第三个参数是一个布尔值，指定是使用事件冒泡 bubbling 还是使用事件捕获 capturing。此参数是可选的。
+
+默认是 bubbling 冒泡, 也就是 false， 代表从内到外的处理顺序 
+(比如 <div><p></p></div>, 先处理p后处理div)
+
+1) 例子
+
+鼠标单击时调用函数
+
+element.addEventListener("click", function(){ alert("Hello World!"); });
+
+2) 多个event handler到同一个element上 
+
+element.addEventListener("click", myFunction);
+element.addEventListener("click", mySecondFunction);
+
+或者
+
+element.addEventListener("mouseover", myFunction);
+element.addEventListener("click", mySecondFunction);
+element.addEventListener("mouseout", myThirdFunction);
+
+3) 对 window 添加 event handler， 而不是element
+
+window.addEventListener("resize", function(){
+  document.getElementById("demo").innerHTML = sometext;
+});
+
+
+
+4) 移除 EventListener
+
+用removeEventListener()方法删除：
+
+element.removeEventListener("mousemove", myFunction);
+
+
+
+
+
+
