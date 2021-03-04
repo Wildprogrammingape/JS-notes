@@ -1,0 +1,173 @@
+在HTML中所有东西都是node， 
+
+document 本身是 node， 
+他的子节点是 <html>，
+<html>的子节点有 <head> <body>, 
+而<head>的子节点是<title>, 
+<body>子节点有 <a> <h1> <p> 等等
+
+1) childNodes property的例子
+
+<title id="demo">DOM Tutorial</title>
+
+-- 在这里 <title>是母节点，text node是子节点，它的值是 "DOM Tutorial"
+
+因此获取"DOM Tutorial"有如下三种方式:
+
+var myTitle = document.getElementById("demo").innerHTML;     // 常用的 DOM property
+var myTitle = document.getElementById("demo").firstChild.nodeValue;  // firstChild.nodeValue
+var myTitle = document.getElementById("demo").childNodes[0].nodeValue; // 有多个值时的方式
+
+
+>> DOM Tutorial
+
+2) document相关的 property
+
+document.body - The body of the document
+document.documentElement - The full document
+
+例子:
+
+alert(document.body.innerHTML);
+
+alert(document.documentElement.innerHTML);
+
+3) nodeName 获取该node的名称，也就是html类型 (大写)
+
+例子：
+
+<h1 id="id01">My First Page</h1>
+
+document.getElementById("id02").innerHTML = document.getElementById("id01").nodeName;
+
+>> H1
+
+
+4) nodeType 这里的类型有对照表
+
+例子：
+
+<h1 id="id01">My First Page</h1>
+
+document.getElementById("id02").innerHTML = document.getElementById("id01").nodeType;
+
+>> 1
+
+
+
+对照表：
+
+Node			Type		Example
+ELEMENT_NODE		1		<h1 class="heading">W3Schools</h1>
+ATTRIBUTE_NODE		2		 class = "heading" (deprecated)
+TEXT_NODE		3		W3Schools
+COMMENT_NODE		8		<!-- This is a comment -->
+DOCUMENT_NODE		9		The HTML document itself (the parent of <html>)
+DOCUMENT_TYPE_NODE	10		<!Doctype html>
+
+
+
+
+用JS来添加或者删除HTML element:
+
+
+1) 创建新的HTML元素（节点）
+
+例子
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var para = document.createElement("p");      		// 添加新element
+var node = document.createTextNode("This is new.");           // 添加子节点，也就是text
+para.appendChild(node);				// 连接
+
+var element = document.getElementById("div1");
+element.appendChild(para);                                                    // 将新加的节点放在<div>中
+</script>
+
+
+>>
+
+This is a paragraph.
+
+This is another paragraph.
+
+This is new.
+
+
+
+2) 删除现有的HTML元素
+
+要删除HTML元素，使用remove() 方法：
+
+例子
+
+<div>
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var elmnt = document.getElementById("p1");
+elmnt.remove();
+</script>
+
+
+>> This is another paragraph.
+
+
+
+3) 删除子节点
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var parent = document.getElementById("div1");
+var child = document.getElementById("p1");
+parent.removeChild(child);
+</script>
+
+>> This is another paragraph.
+
+
+4) 替换HTML元素
+
+
+要将元素替换为HTML DOM，使用以下replaceChild()方法：
+
+例子
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var para = document.createElement("p");
+var node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+var parent = document.getElementById("div1");
+var child = document.getElementById("p1");
+parent.replaceChild(para, child);
+</script>
+
+
+>>
+
+This is new.
+
+This is another paragraph.
+
+
+
+
+
+
