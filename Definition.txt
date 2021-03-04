@@ -1,49 +1,9 @@
-Function有两种定义方式
+DOM : document object model
 
-1) Function declaration (过时了不常用)
+当网页加载时，浏览器会创建该页面的DOM. 
 
-function functionName(parameters) {
-  // code to be executed
-}
+HTML DOM是一组 tree of objects, 有 Document, <html>, <head>, <body>等组成, 在DOM中，所有HTML element 都是object
 
-如:
+-- 换句话说：HTML DOM是如何获取，更改，添加或删除HTML元素的标准。
 
-function myFunction(a, b) {
-  return a * b;
-}
-
-
-2) Function Expression (也就是匿名函数anonymous function, 不需要function关键词)
-
-如 :
-
-var x = function (a, b) {return a * b};
-var z = x(4, 3);
-
-
-3) Arrow Function 箭头函数让function expression更简洁了, 不用function return 和 {}
-
-例子:
-
-// ES5
-var x = function(x, y) {
-  return x * y;
-}
-
-// ES6
-const x = (x, y) => x * y;
-
-
-4) self-invoking function自调用函数, 不需要call直接执行
-
-语法类似于: Function expressions +  ().
-
-例子:
-
-<script>
-(function () {
-  document.getElementById("demo").innerHTML = "Hello! I called myself";
-})();
-</script>
-
--- Hello! I called myself
+HTML DOM is the standard for manipulating HTML elements (get change add delete)
