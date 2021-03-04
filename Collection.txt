@@ -1,0 +1,39 @@
+getElementsByTagName()方法返回一个HTML Collection对象。
+
+这个collection集合类似数组，可以用 collection[1] 来选择不同的内容，而且可以用 .length 获取长度
+
+1) 例子:
+
+var x = document.getElementsByTagName("p");
+
+y = x[1];       // 选取p tag的第二个元素
+
+
+2) 例子：
+
+var myCollection = document.getElementsByTagName("p");
+
+document.getElementById("demo").innerHTML = myCollection.length;  // 获取p tag的数量
+
+
+3) 例子
+
+更改所有<p>元素的背景颜色：
+
+var myCollection = document.getElementsByTagName("p");
+var i;
+for (i = 0; i < myCollection.length; i++) {
+  myCollection[i].style.color = "red";
+}
+
+
+
+注意：
+
+HTMLCollection不是数组！
+
+HTMLCollection可能看起来像数组，但事实并非如此。
+
+您可以遍历列表，并用数字引用元素（就像数组一样）。
+
+但是，不能在HTMLCollection上使用诸如valueOf（），pop（），push（）或join（）之类的数组方法。
