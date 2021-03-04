@@ -1,0 +1,30 @@
+ListNode和 HTML collection 集合是一个东西，都是当使用method如document.querySelectorAll时候返回的对象
+
+比如：
+
+var myNodeList = document.querySelectorAll("p");   // 选择<p>文档中的所有节点
+
+y = myNodeList[1];
+
+>> 访问第二个<p>节点
+
+
+
+又或者用.length获取node数量:
+
+var myNodelist = document.querySelectorAll("p");
+document.getElementById("demo").innerHTML = myNodelist.length;
+
+>> 返回 p tag的元素数量
+
+
+
+例子: 
+
+更改节点列表中所有<p>元素的颜色
+
+var myNodelist = document.querySelectorAll("p");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  myNodelist[i].style.color = "red";
+}
