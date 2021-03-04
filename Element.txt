@@ -1,0 +1,65 @@
+查找HTML element的常用方式:
+
+Finding HTML elements by id
+Finding HTML elements by tag name
+Finding HTML elements by class name
+Finding HTML elements by CSS selectors
+Finding HTML elements by HTML object collections
+
+1) id
+
+<p id="intro">Hello World!</p>
+
+var myElement = document.getElementById("intro");
+
+2) tag
+
+<p>Hello World!</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+var x = document.getElementsByTagName("p");
+这里"p" tag有两个元素，因此可以用 x[0].innerHTML 的方式获取第几个element
+
+-- 效果等同于 document.getElementsByTagName("p")[0].innerHTML 直接操作
+
+>> Hello World!
+
+3) class
+
+<p class="intro">The DOM is very useful.</p>
+<p class="intro">This example demonstrates the method.</p>
+
+var x = document.getElementsByClassName("intro");
+同样, 有多个相同class 的情况可以用 x[0].innerHTML 访问不同元素
+
+>>The DOM is very useful.
+
+4) CSS selectors
+
+CSS中的querySelectorAll() 也可以选取特定的元素：
+
+<p class="intro">The DOM is very useful.</p>
+<p class="intro">This example demonstrates the method.</p>
+
+var x = document.querySelectorAll("p.intro");
+同样, 有多个相同class 的情况可以用 x[0].innerHTML 访问不同元素
+
+>> The DOM is very useful. 
+
+5) object collections
+
+document.forms[id] 可以用来获取给定id的form
+
+<form id="frm1"> </form>
+
+var x = document.forms["frm1"];
+var text = "";
+var i;
+for (i = 0; i < x.length; i++) {
+  text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+
+
+
+
