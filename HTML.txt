@@ -1,0 +1,60 @@
+改变HTML 常用方法：
+
+1) document.write() 
+
+直接写入HTML output
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+document.write(Date());
+</script>
+
+</body>
+</html>
+
+>> Wed Mar 03 2021 16:10:57 GMT-0500 (Eastern Standard Time)
+
+
+2) innerHTML
+
+document.getElementById("p1").innerHTML = "New text!";
+
+3) 改变Attribute的值
+
+例子: 改变 src attribute的值
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="myImage" src="smiley.gif">
+
+<script>
+document.getElementById("myImage").src = "landscape.jpg";
+</script>
+
+</body>
+</html>
+
+4) 改变 input 初始值
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="myText" value="Hello" >
+
+<script>
+document.getElementById("myText").value = "Have a nice day!";
+</script>
+
+
+</body>
+</html> 
+
+-- 输入input的初始值变为 Have a nice day!
+
+
