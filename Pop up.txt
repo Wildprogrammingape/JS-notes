@@ -1,0 +1,26 @@
+JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.
+
+警告框，确认框 和 提示框
+
+1) window.alert() 警告框
+
+alert("I am an alert box!");
+
+2) window.confirm() 确认框, 用户将必须单击“确定”或“取消”才能继续
+
+if (confirm("Press a button!")) {
+  txt = "You pressed OK!";
+} else {
+  txt = "You pressed Cancel!";
+}
+
+
+3) window.prompt() 提示框, 用户可以输入值
+
+var person = prompt("Please enter your name", "Harry Potter");
+
+if (person == null || person == "") {
+  txt = "User cancelled the prompt.";
+} else {
+  txt = "Hello " + person + "! How are you today?";
+}

@@ -1,0 +1,33 @@
+与屏幕相关的method：
+
+
+1) screen.width 屏幕的宽度（以像素为单位）
+
+document.getElementById("demo").innerHTML =
+"Screen Width: " + screen.width;
+
+-- Screen Width: 1536
+
+2) screen.height 屏幕的高度
+
+document.getElementById("demo").innerHTML =
+"Screen Height: " + screen.height;
+
+-- Screen Height: 864
+
+3) screen.availWidth 可用宽度
+4) screen.availHeight 可用高度
+5) screen.colorDepth 屏幕的色彩深度
+
+document.getElementById("demo").innerHTML =
+"Screen Color Depth: " + screen.colorDepth;
+
+-- Screen Color Depth: 24
+
+6) screen.pixelDepth  像素深度
+
+document.getElementById("demo").innerHTML =
+"Screen Pixel Depth: " + screen.pixelDepth;
+
+-- Screen Pixel Depth: 24
+

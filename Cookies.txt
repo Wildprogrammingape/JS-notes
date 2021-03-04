@@ -1,0 +1,73 @@
+Cookies 是用来保存用户数据到浏览器里的功能
+
+1) 创建 cookie
+
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+
+里面有cookie的内容, 过期时间，以及路径
+
+2) 读取 cookie
+
+var x = document.cookie;
+
+-- 返回cookie字符串
+
+3) 更改 cookie
+
+document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:
+
+4) 删除Cookie
+
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+将日期设置到已经过去的时间
+
+
+例子:
+
+第一次进入网页有对话框输入名字，下一次进来有欢迎对话框
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user=getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+</script>
+</head>
+
+<body onload="checkCookie()"></body>
+
+</html>

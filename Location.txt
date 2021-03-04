@@ -1,0 +1,84 @@
+window.location对象可用于获取当前页面地址（URL）并将浏览器重定向到新页面。
+
+window.location.href 返回当前页面的href（URL）
+window.location.hostname 返回虚拟主机的域名
+window.location.pathname 返回当前页面的路径和文件名
+window.location.protocol 返回使用的Web协议（http：或https ：）
+window.location.assign() 载入新文件
+
+1) window.location.href属性返回当前页面的URL
+
+document.getElementById("demo").innerHTML =
+"Page location is " + window.location.href;
+
+-- Page location is https://www.w3schools.com/js/js_window_location.asp
+
+2) window.location.hostname属性返回（当前页面的）Internet主机的名称
+
+document.getElementById("demo").innerHTML =
+"Page hostname is " + window.location.hostname;
+
+-- Page hostname is www.w3schools.com
+
+3) window.location.pathname 返回当前页面的路径名
+
+document.getElementById("demo").innerHTML =
+"Page path is " + window.location.pathname;
+
+-- Page path is /js/js_window_location.asp
+
+4) window.location.protocol属性返回页面的Web协议
+
+document.getElementById("demo").innerHTML =
+"Page protocol is " + window.location.protocol;
+
+-- Page protocol is https:
+
+5) window.location.port属性返回（当前页面的）Internet主机端口号
+
+document.getElementById("demo").innerHTML =
+"Port number is " + window.location.port;
+
+-- Port number is 443
+
+6) window.location.assign()方法将加载一个新文档
+
+例子
+
+<html>
+<head>
+<script>
+function newDoc() {
+  window.location.assign("https://www.w3schools.com")
+}
+</script>
+</head>
+<body>
+
+<input type="button" value="Load new document" onclick="newDoc()">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6)
