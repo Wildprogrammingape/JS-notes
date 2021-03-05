@@ -1,0 +1,55 @@
+Web History API提供了访问windows.history对象的简便方法。
+
+window.history对象包含用户访问的网页URL
+
+1) back() 返回之前的web URL, 即为后退
+
+<button onclick="myFunction()">Go Back</button>
+
+<script>
+function myFunction() {
+  window.history.back();
+}
+</script>
+
+2) go() 用于返回之前的web URL多少页
+
+<button onclick="myFunction()">Go Back 2 Pages</button>
+
+<script>
+function myFunction() {
+  window.history.go(-2);
+}
+</script>
+
+-- 后退两页
+
+
+
+常用的web history property和method:
+
+History Object Properties:
+
+Property		Description
+length		Returns the number of URLs in the history list
+
+
+
+
+History Object Methods:
+
+Method		Description
+
+back()		Loads the previous URL in the history list
+forward()	Loads the next URL in the history list
+go()	Loads a specific URL from the history list
+
+
+
+
+
+
+
+
+
+

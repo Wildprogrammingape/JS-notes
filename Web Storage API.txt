@@ -1,0 +1,82 @@
+常用的两种存储数据API：
+
+1) localStorage 
+
+该对象将数据存储到特定web的storage上，数据会一直存在
+
+-- localStorage.setItem（）方法将数据项存储在存储器中
+
+如：
+
+localStorage.setItem("name", "John Doe");
+
+>> 存储数据 name - John Doe
+
+
+-- localStorage.getItem（）方法从存储中检索数据
+
+如：
+
+localStorage.getItem("name");
+
+>> John Doe
+
+
+2) sessionStorage对象
+
+该对象和 localStorage 一样，只是在浏览器关闭后会自动清除数据
+
+-- sessionStorage.setItem（）方法将数据项存储在存储器中
+
+如：
+
+sessionStorage.setItem("name", "John Doe");
+
+>> 存储数据 name - John Doe
+
+
+-- sessionStorage.getItem（）方法从存储中检索数据项
+
+如：
+
+sessionStorage.getItem("name");
+
+
+
+
+
+
+
+其他信息：
+
+存储对象的属性和方法：
+
+Property/Method		Description
+
+key(n)			Returns the name of the nth key in the storage
+length			Returns the number of data items stored in the Storage object
+getItem(keyname)		Returns the value of the specified key name
+setItem(keyname, value)	Adds that key to the storage, or update that key's value if it already exists
+removeItem(keyname)	Removes that key from the storage
+clear()			Empty all key out of the storage
+
+
+
+
+Web存储API的相关页面：
+
+Property			Description
+
+window.localStorage	Allows to save key/value pairs in a web browser. Stores the data with no expiration date
+window.sessionStorage	Allows to save key/value pairs in a web browser. Stores the data for one session
+
+
+
+
+
+
+
+
+
+
+>> John Doe

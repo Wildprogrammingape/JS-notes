@@ -1,0 +1,30 @@
+Fetch API 可以发送HTTP request到服务器，比XMLHttpRequest Object更简单
+
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+getText("fetch_info.txt");   // 调用下面的函数
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("demo").innerHTML = myText;
+}
+</script>
+
+</body>
+</html>
+
+
+-- 显示 fetch_info.txt 文本的内容：
+
+Fetch API
+
+The Fetch API interface allows web browser to make HTTP requests to web servers.
+
+If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.

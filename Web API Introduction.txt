@@ -1,0 +1,26 @@
+API的意思是application programming interface，即为应用程序接口
+
+Web API即为 web相关的应用程序接口
+
+例子：
+
+Geolocation API可以返回浏览器所在位置的坐标
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+--
+Latitude: 45.4939172
+Longitude: -73.582201
