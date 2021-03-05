@@ -1,0 +1,45 @@
+JSON的常见用法是与Web服务器交换数据。
+
+将数据发送到Web服务器时，数据必须是string。
+
+使用将JavaScript对象转换为字符串JSON.stringify()。
+
+
+1) JSON.stringify()简单示例
+
+var obj = { name: "John", age: 30, city: "New York" };
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+
+2) 转换数组，获得string
+
+var arr = [ "John", "Peter", "Sally", "Jane" ];
+var myJSON = JSON.stringify(arr);
+document.getElementById("demo").innerHTML = myJSON;
+
+>> ["John","Peter","Sally","Jane"] (这是个字符串)
+
+3) 转换Date，获得字符串
+
+var obj = { name: "John", today: new Date(), city : "New York" };
+var myJSON = JSON.stringify(obj);
+
+document.getElementById("demo").innerHTML = myJSON;
+
+>> {"name":"John","today":"2021-03-04T22:26:23.608Z","city":"New York"}
+
+4) 转换function，自动去掉改组数据
+
+var obj = { name: "John", age: function () {return 30;}, city: "New York"};
+var myJSON = JSON.stringify(obj);
+
+document.getElementById("demo").innerHTML = myJSON;
+
+>>{"name":"John","city":"New York"}
+
+
+
+
+
+
+
