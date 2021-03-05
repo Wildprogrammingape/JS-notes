@@ -1,0 +1,127 @@
+JSON中的数组与JavaScript中的数组几乎相同。
+
+在JSON中，数组值的类型必须为string，number，object，array，boolean或null。
+
+在JavaScript中，数组值可以是上述所有值，以及任何其他有效的JavaScript表达式，包括函数，日期和未定义。
+
+比如：
+
+{
+"name":"John",
+"age":30,
+"cars":[ "Ford", "BMW", "Fiat" ]
+}
+
+1) 访问数组值：
+
+x = myObj.cars[0];
+
+>> Ford
+
+2) 遍历数组
+
+for in 是获得key，用于Object或数组
+
+-- for in循环的例子:
+
+for (i in myObj.cars) {
+  x += myObj.cars[i];
+}
+
+>> 
+Ford
+BMW
+Fiat
+
+
+-- for 循环的例子:
+
+for (i = 0; i < myObj.cars.length; i++) {
+  x += myObj.cars[i];
+}
+
+>>
+Ford
+BMW
+Fiat
+
+3) ** JSON对象中的嵌套数组  (用双重for in循环, 第一层循环获得外层array的key，第二层获得内层array的key)
+
+例子：
+
+获取嵌套JSON数组里的值，并输出到网页上
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Looping through arrays inside arrays.</p>
+
+<p id="demo"></p>
+
+<script>
+var myObj, i, j, x = "";
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": [
+    {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {"name":"BMW", "models":["320", "X3", "X5"]},
+    {"name":"Fiat", "models":["500", "Panda"] }
+  ]
+}
+for (i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<br>";
+  }
+}
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+
+结果：
+
+
+Ford
+
+Fiesta
+Focus
+Mustang
+
+BMW
+
+320
+X3
+X5
+
+Fiat
+
+500
+Panda
+
+
+4) 修改数组值
+
+myObj.cars[1] = "Mercedes";
+
+5) 删除数组值
+
+delete myObj.cars[1];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
