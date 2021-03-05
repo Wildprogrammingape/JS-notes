@@ -1,44 +1,37 @@
-AJAX全称是 Asynchronous JavaScript And XML，是browser 访问 server的技术
+JSON是存储和交换数据的格式，本质是 text， 全称为 JavaScript Object Notation
 
-有了AJAX，页面加载后，从server读取数据，更新网页 update 而不重新加载 reload 网页
+为什么用JSON?
 
+-- JSON 格式容易sent to server和get from server，而且容易理解，有内置函数将JS对象和JSON互换
 
-具体流程：
+1) JSON.stringify() 
 
-1.网页中发生事件（页面已加载，单击了按钮）
-2. JavaScript创建一个XMLHttpRequest对象
-3. XMLHttpRequest对象将请求发送到Web服务器
-4.服务器处理请求
-5.服务器将响应发送回网页
-6.响应由JavaScript读取
-7. JavaScript执行适当的操作（例如页面更新）
+将对象转换为JSON格式
 
+var myObj = {name: "John", age: 31, city: "New York"};
+var myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;
 
+2) JSON.parse() 
 
-例子：
+将JSON转换为对象
 
-<!DOCTYPE html>
-<html>
-<body>
+var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+var myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;
 
-<div id="demo">
-<h2>The XMLHttpRequest Object</h2>
-<button type="button" onclick="loadDoc()">Change Content</button>
-</div>
+3) 存储数据
 
-<script>
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
-}
-</script>
+JSON将对象存储为text的例子:
 
-</body>
-</html>
+// Storing data:
+myObj = {name: "John", age: 31, city: "New York"};
+myJSON = JSON.stringify(myObj);
+localStorage.setItem("testJSON", myJSON);
+
+// Retrieving data:
+text = localStorage.getItem("testJSON");
+obj = JSON.parse(text);
+document.getElementById("demo").innerHTML = obj.name;
+
+>> John
