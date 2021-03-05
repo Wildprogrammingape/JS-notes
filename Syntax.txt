@@ -1,0 +1,23 @@
+The JSON syntax is a subset of the JavaScript syntax.
+
+JSON语法是JavaScript语法的子集
+
+
+JSON格式
+{ "name":"John" }
+
+JavaScript格式
+{ name:"John" }
+
+
+JSON和对象一样，也是property-value的组合，但是value只能是以下几种数据类型:
+
+a string
+a number
+an object (JSON object)
+an array
+a boolean
+null
+
+
+不可以是函数function, date 和 undefined
