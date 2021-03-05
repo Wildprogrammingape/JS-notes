@@ -1,0 +1,84 @@
+JSON Object和普通JS对象的access方法几乎一样
+
+1) Accessing Object Values
+
+myObj = { "name":"John", "age":30, "car":null };
+x = myObj.name;
+x = myObj["name"];
+
+>> John
+
+2) 用 for in loop遍历 property
+
+myObj = { "name":"John", "age":30, "car":null };
+for (x in myObj) {
+  document.getElementById("demo").innerHTML += x + "<br>";
+}
+
+>> 
+name
+age
+car
+
+
+myObj = { "name":"John", "age":30, "car":null };
+for (x in myObj) {
+  document.getElementById("demo").innerHTML += myObj[x] + "<br>";
+}
+
+>>
+John
+30
+null
+
+
+3) 嵌套JSON Object
+
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": {
+    "car1":"Ford",
+    "car2":"BMW",
+    "car3":"Fiat"
+  }
+ }
+
+x = myObj.cars.car2;
+// or:
+x = myObj.cars["car2"];
+
+>>
+BMW
+BMW
+
+改变嵌套object的值:
+
+myObj.cars.car2 = "Mercedes";
+
+或
+
+myObj.cars["car2"] = "Mercedes";
+
+
+
+4) 删除JSON property
+
+
+delete myObj.cars.car2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
