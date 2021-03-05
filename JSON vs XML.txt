@@ -1,0 +1,70 @@
+JSON和XML均可用于从Web服务器接收数据
+
+1) JSON例子
+
+{"employees":[
+  { "firstName":"John", "lastName":"Doe" },
+  { "firstName":"Anna", "lastName":"Smith" },
+  { "firstName":"Peter", "lastName":"Jones" }
+]}
+
+2) XML例子
+
+<employees>
+  <employee>
+    <firstName>John</firstName> <lastName>Doe</lastName>
+  </employee>
+  <employee>
+    <firstName>Anna</firstName> <lastName>Smith</lastName>
+  </employee>
+  <employee>
+    <firstName>Peter</firstName> <lastName>Jones</lastName>
+  </employee>
+</employees>
+
+
+ 3) 共同点
+
+JSON就像XML，因为
+JSON和XML都是“自我描述”（人类可读）
+JSON和XML都是分层的（值内的值）
+JSON和XML均可被许多编程语言解析和使用
+JSON和XML都可以使用XMLHttpRequest来获取
+
+
+4) 不同点
+
+JSON与XML不同，因为
+JSON不使用结束标记
+JSON更短
+JSON读写更快
+JSON可以使用数组
+
+
+最大的区别是：
+
+XML必须使用XML解析器进行解析。JSON可以通过标准JavaScript函数进行解析。
+
+
+5) JSON的优势
+
+XML is harder to parse than JSON , JSON is parsed into JavaScript Object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
