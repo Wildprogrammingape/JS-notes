@@ -1,0 +1,33 @@
+JSONP是一种发送JSON数据而无需担心跨域cross-domain问题的方法。
+
+JSONP不使用该XMLHttpRequest对象。
+
+JSONP使用<script>标记代替。
+
+
+
+
+JSONP的定义是 JSON with padding, 即有填充的JSON。通过<script>发送获取JSON数据的请求
+
+例子：
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Request JSON using the script tag</h2>
+<p>The PHP file returns a call to a function that will handle the JSON data.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunc(myObj) {
+  document.getElementById("demo").innerHTML = myObj.name;
+}
+</script>
+
+<script src="demo_jsonp.php"></script>
+
+</body>
+</html>
