@@ -1,0 +1,67 @@
+HTML DOM相关的jQuery对比：
+
+1) Removing Elements 移除HTML元素
+
+jQuery:
+
+$("#id").remove();
+
+JavaScript:
+
+element.parentNode.removeChild(element);
+
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Remove an HTML Element</h2>
+
+<h2 id="id01">Hello World!</h2>
+<h2 id="id02">Hello Sweden!</h2>
+
+<script>
+var element = document.getElementById("id01");
+element.parentNode.removeChild(element);
+</script>
+
+</body>
+</html>
+
+>> Hello Sweden! (Hello World的元素被移除)
+
+
+2) Get Parent Element 获取HTML元素的母结点
+
+jQuery:
+
+var myParent = myElement.parent();
+
+JavaScript:
+
+var myParent = myElement.parentNode;
+
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Getting Parent HTML Element</h1>
+
+<h2 id="01">Hello World!</h2>
+<h2 id="02">Hello Sweden!</h2>
+<h2 id="03">Hello Japan!</h2>
+
+<p id="demo"></p>
+
+<script>
+var myParent = document.getElementById("02").parentNode;
+document.getElementById("demo").innerHTML = myParent.nodeName;
+</script>
+
+</body>
+</html>
+
+>> BODY (Hello Sweden的母结点为body)

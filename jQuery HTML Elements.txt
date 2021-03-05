@@ -1,0 +1,78 @@
+jQuery 用来设置HTML 文本
+
+Text用于<head>的内容， innnerHTML用于 <div><p>等
+
+1) Set Text Content 设置文本内容
+
+Set the inner text of an HTML element:
+
+jQuery:
+
+myElement.text("Hello Sweden!");
+
+JavaScript:
+
+myElement.textContent = "Hello Sweden!";
+
+2) Get Text Content 获取文本内容
+
+Get the inner text of an HTML element:
+
+jQuery:
+
+var myText = myElement.text();
+
+JavaScript:
+
+var myText = myElement.textContent || myElement.innerText;  (textContent 和 innerText效果一样)
+
+
+3) Set HTML Content 设置HTML内容
+
+Set the HTML content of an element:
+
+jQuery:
+
+var myElement.html("<p>Hello World</p>");
+
+JavaScript:
+
+var myElement.innerHTML = "<p>Hello World</p>";
+
+4) Get HTML Content 获取HTML内容
+
+Get the HTML content of an element:
+
+jQuery:
+
+var content = myElement.html();
+
+JavaScript:
+
+var content = myElement.innerHTML;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

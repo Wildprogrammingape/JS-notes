@@ -1,0 +1,73 @@
+JQuery 是最流行的 JavaScript库，用来简化 HTML DOM, event handling, Animation和AJAX的操作
+
+1) Finding HTML Element by Id
+
+Return the element with id="id01":
+
+jQuery:
+
+var myElement = $("#id01");
+
+
+JavaScript:
+
+var myElement = document.getElementById("id01");
+
+
+2) Finding HTML Elements by Tag Name
+
+Return all <p> elements:
+
+jQuery:
+
+var myElements = $("p");
+
+JavaScript:
+
+var myElements = document.getElementsByTagName("p");
+
+
+
+3) Finding HTML Elements by Class Name
+
+Return all elements with class="intro".
+
+jQuery:
+
+var myElements = $(".intro");
+
+JavaScript:
+
+var myElements = document.getElementsByClassName("intro");
+
+
+
+4) Finding HTML Elements by CSS Selectors
+
+Return a list of all <p> elements with class="intro".
+
+jQuery:
+
+var myElements = $("p.intro");
+
+JavaScript:
+
+var myElements = document.querySelectorAll("p.intro");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
