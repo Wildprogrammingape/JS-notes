@@ -1,0 +1,124 @@
+JSON的常见用法是与Web服务器交换数据。
+
+从Web服务器接收数据时，数据始终是string。
+
+使用JSON.parse()转化数据为JavaScript对象
+
+
+1) JSON.parse() 的 简单示例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+var txt = '{"name":"John", "age":30, "city":"New York"}'
+var obj = JSON.parse(txt);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+</script>
+
+</body>
+</html>
+
+
+>> John, 30
+
+2) 从服务器获取JSON，结合AJAX
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Use the XMLHttpRequest to get the content of a file.</h2>
+<p>The content is written in JSON format, and can easily be converted into a JavaScript object.</p>
+
+<p id="demo"></p>
+
+<script>
+var xmlhttp = new XMLHttpRequest();    // 定义AJAX服务器请求  "XMLHttpRequest"对象
+xmlhttp.onreadystatechange = function() {    // 收到response的时候执行的功能
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);   // 用JSON.parse()将JSON转换为object
+    document.getElementById("demo").innerHTML = myObj.name;
+  }
+};
+xmlhttp.open("GET", "json_demo.txt", true);             // 表明要从服务器要获得的数据
+xmlhttp.send();				 // 发送请求
+</script>		
+
+<p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p>
+
+</body>
+</html>
+
+>>John
+
+服务器端JSON数据为:
+
+{
+"name": "John",
+"age": 31,
+"pets": [
+{
+"animal": "dog",
+"name": "Fido"
+},
+{
+"animal": "cat",
+"name": "Felix"
+},
+{
+"animal": "hamster",
+"name": "Lightning"
+}
+]
+}
+
+
+3) 解析Array也会获得array, 而不是对象
+
+从服务器返回的JSON是一个数组：
+
+[
+"Ford",
+"BMW",
+"Audi",
+"Fiat"
+]
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myArr = JSON.parse(this.responseText);
+    document.getElementById("demo").innerHTML = myArr[0];
+  }
+};
+xmlhttp.open("GET", "json_demo_array.txt", true);
+xmlhttp.send();
+
+>>Ford
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
