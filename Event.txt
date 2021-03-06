@@ -1,62 +1,22 @@
-常用的Event：
+Event是HTML element变化的意思，something changed on HTML element，比如用户点击按钮
 
-1) onclick
+当使用addEventListener时候，第一个传递到函数的参数就是event 对象
 
-<script>
-document.getElementById("myBtn").onclick = displayDate;
-</script>
+When a listener is added using addEventListener, the first argument passed to the function is an Event object
 
-2) onload 和 onunload
+例子：
 
-onload与onunload当用户进入或离开页面的事件被触发
-
-<body onload="checkCookies()">
-
-3) onchange
-
-<!DOCTYPE html>
-<html>
-<head>
-<script>
-function myFunction() {
-  var x = document.getElementById("fname");
-  x.value = x.value.toUpperCase();
-}
-</script>
-</head>
-<body>
-
-Enter your name: <input type="text" id="fname" onchange="myFunction()">
-
-<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
-
-</body>
-</html>
-
--- 将 input输入的内容转为大写
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
 
 
-4) onmouseover和onmouseout
+常用的HTML event:
 
-<!DOCTYPE html>
-<html>
-<body>
+Event		Description
 
-<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
-style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
-Mouse Over Me</div>
-
-<script>
-function mOver(obj) {
-  obj.innerHTML = "Thank You"   // 悬停时的内容
-}
-
-function mOut(obj) {
-  obj.innerHTML = "Mouse Over Me" // 鼠标不在的内容
-}
-</script>
-
-</body>
-</html> 
-
+onchange		An HTML element has been changed			HTML element改变
+onclick		The user clicks an HTML element			用户点击	
+onmouseover	The user moves the mouse over an HTML element	   	鼠标悬停
+onmouseout	The user moves the mouse away from an HTML element      鼠标离开
+onkeydown	The user pushes a keyboard key 			按键盘
+onload		The browser has finished loading the page		浏览器完成加载
 
