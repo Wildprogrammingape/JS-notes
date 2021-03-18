@@ -1,0 +1,13 @@
+primitive type有 number, string, boolean, null, undefined, symbol (data type except object)
+reference type有 object, array, function, date (all types of object)
+
+首先, primitive type 是存在 stack中的, 每次make copy时候都会创建新的值
+
+而 reference type 是存在 heap中的，每次make copy的时候只是复制reference，相当于取别名
+
+
+when we make copy of primitive type values, we make a new copy of the value in stack.
+
+when we make copy of reference type values, we just make a copy of the reference (pointer in stack).
+
+因此，复制后的primitive 不会改变之前的值，而复制后的reference会改变前面的值
