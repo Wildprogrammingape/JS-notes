@@ -1,4 +1,4 @@
-this关键词在不同位置指代不同
+this关键词在不同位置指代不同，为  owner
 
 1) 在method中， this 指的是 该method的owner所有者
 
@@ -33,3 +33,16 @@ function myFunction() {
 
 
 然而，在arrow function中，this 只为 拥有该 arrow function的object，一般为window object
+
+
+补充: Object中的普通method可以简写为 (property method   不需要冒号和function关键词) ：
+
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     : 5566,
+  fullName () {                   // property - value
+    return this.firstName + " " + this.lastName;
+  }
+};
