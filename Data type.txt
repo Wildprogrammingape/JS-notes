@@ -3,9 +3,9 @@
 1. Number
 2. String 
 3. Boolean
-4. Object		Array也被归类为Object
-5. Null
-6. Undefined	var car;    // Value is undefined, type is undefined
+4. Object		Array, Date, Literal，Function等都是Object，可以说everything in js is object
+5. Null 		explicitly set a variable with no value
+6. Undefined	let car;    // Value is undefined, type is undefined
 7. Symbol
 
 两个数据结构:
