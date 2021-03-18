@@ -18,3 +18,5 @@ for (let i = 0; i < 10; i++) {
   // some statements
 }
 // Here i is 5
+
+总结: let 和 const引进了 block scope
