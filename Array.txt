@@ -1,7 +1,7 @@
 Array是JS的一种数据结构，也是special Object
 
-
 1. Looping Array Elements 遍历数组的两种方式：
+
 1) for loop
 
 var fruits, text, fLen, i;
@@ -62,7 +62,7 @@ document.getElementById("demo").innerHTML = fruits.toString();
 2) join() 将数组连接为字符串
 
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
-document.getElementById("demo").innerHTML = fruits.join(" * ");
+fruits.join(" * ");
 
 --Banana * Orange * Apple * Mango
 
