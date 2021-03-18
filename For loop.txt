@@ -28,3 +28,61 @@ for (let x of cars) {
 BMW
 Volvo
 Mini
+
+
+
+3) forEach 函数 与 callback function
+
+所谓callback function是作为参数传递的函数
+
+
+forEach()是built-in method，它的参数就是一个callback function
+
+例子：
+
+let people = ["mario", "luigi", "chunli", "Long", "ryu"];
+
+people.forEach( function(value, index){   // 对于每个element都会call一次ballback function
+
+   console.log(value, index);
+});
+
+>> 
+mario 0
+luigi 1
+chunli 2
+Long 3
+ryu 4
+
+箭头函数的写法:
+
+people.forEach( (person,index) => {
+   console.log(value,index);
+})
+
+
+
+
+
+当然，也可以将callback function这个参数写在外面：
+
+let people = ["mario", "luigi", "chunli", "Long", "ryu"];
+
+const callbackFunc = (value, index) => {
+   console.log(`${index} - hello ${value}`);
+};
+
+people.forEach(callbackFunc);
+
+>>
+
+0 - hello mario
+1 - hello  luigi
+2 - hello chunli
+3 - hello Long
+4 - hello ryu
+
+
+
+
+
