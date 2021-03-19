@@ -1,8 +1,12 @@
 element.classList 是一个DOMTokenList 对象Object，返回 element的class arrtibute的内容
 
-常用method:
+常用property:
 
 element.classList  --  返回该元素的CSS Class Collection 类集合
+
+
+常用method:
+
 element.classList.add()  -- 将CSS类添加到元素的类列表中
 element.classList.remove()  -- 从元素的类列表中删除CSS类
 element.classList.replace() --将现有的类替换为新的类
