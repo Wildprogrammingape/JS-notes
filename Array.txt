@@ -47,11 +47,13 @@ fruits.push("Lemon");    // adds a new element (Lemon) to fruits
 var points = new Array();     // Bad    不要像Java一样 new 一个新对象，会影响代码执行速度
 var points = [];                     // Good 
 
+4. array.includes()
 
-
+arr.includes(valueToFind, fromIndex)
 
 
 常用的Array methods:
+
 1) toString() 将数组转为字符串
 
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
