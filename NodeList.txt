@@ -1,4 +1,4 @@
-NodeList objects are collection of nodes  (NodeList 对象是节点的集合)
+NodeList objects are collection of nodes /element  (NodeList 对象是节点的集合，类似数组,这些node即为element)
 
 通常是由property 如Node.childNodes 和 method 如document.querySelectorAll 返回的。
 
