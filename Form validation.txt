@@ -8,3 +8,42 @@ form.onsubmit = function(e) {
     para.textContent = 'You need to fill in both names!';
   }
 }
+
+补充:  event.preventDefault()  可以阻止browser自带的刷新网页，即点击submit后不刷新网页
+
+
+
+
+使用 regular expression正则表达式来验证用户输出：
+
+const username = 'Long';
+const pattern = /[a-z]{6,10}/;   (小写a到z且6-10个字符)
+const pattern = /^[a-z]{6,}$/  (小写a-z开头和结尾至少6字符)
+
+
+let result = pattern.test(username)  -- false
+
+let result = username.search(pattern);  (搜索某string含有另一个string的index) -- 0
+
+
+
+例子： 用"keyup"这个event来改变用户输入框，正确为绿，错误为红:
+
+userInput.addEventListener('keyup', e => {
+   if (pattern.test(e.target.value)){
+      userInput.setAttribute('class','success');
+   }
+   else {
+      userInput.setAttribute('class','error');
+   }
+})
+
+
+
+
+
+
+
+
+
+
