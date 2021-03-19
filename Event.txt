@@ -2,14 +2,13 @@
 
 比如 event.target 这个 property 指的是该event发生的目标 element。
 
-例子：
 
-function bgChange(e) {
-  const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-  e.target.style.backgroundColor = rndCol;
-  console.log(e);
-}
+用于 element.addEventListener('click', callbackFunction)
 
-btn.addEventListener('click', bgChange);
+例子，给点击的每一个li贯穿线条:
 
-这里 e.target指的就是 button自身
+event.target.style.textDecoration = 'line-through';
+
+
+
+补充:  event.preventDefault()  可以阻止browser自带的刷新网页，即点击submit后不刷新网页
