@@ -1,0 +1,11 @@
+1. element.classList.toggle('test');    增加或删除一个class
+   element.appendChild()                添加子节点   
+   element.prepend()		     添加子节点到顶部
+   element.remove() 		     删除元素
+ 
+
+2. document.createElement() 创建一个元素
+   document.createTextNode() 创建文本节点，内容为string
+
+3.  element.setAttribute('class','test');  完全覆盖class
+    element.getAttribute('class');
