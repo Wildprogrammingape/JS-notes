@@ -1,11 +1,15 @@
-1) 
+这个方式是最好用的，因为返回的是element, 或者 NodeList (a collection of elements)，可以使用forEach.
+
+而其他方式比如getElementByClassName返回的是HTML collection，不方便使用
+
+1) Document.querySelector()
 
 Document.querySelector() 返回第一个match的element，没有则返回null
 
 The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
-
+ 
 语法：
-
+ 
 element = document.querySelector(selectors);.
 
 例子：
@@ -18,7 +22,7 @@ Selectors can also be really powerful, as demonstrated in the following example.
 
 var el = document.querySelector("div.user-panel.main input[name='login']");
 
-2)
+2) Document.querySelectorAll
 
 Document.querySelectorAll  返回与指定的选择器组所有匹配的NodeList
 
