@@ -8,4 +8,4 @@
 2. element.children           元素的子节点， 为HTML collection，用Array.from(element.children)转换为数组
    element.nextElementSibling  下一个兄弟节点
    element.previousElementSibling 上个兄弟节点
-   element.parentElement  母节点
+   element.parentElement  母节点  element.parentNode 一样是母节点

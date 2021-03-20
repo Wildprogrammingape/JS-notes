@@ -14,3 +14,5 @@ ul.addEventListener('click', e =>{
 });
 
 当点击某个li 时，向上bubble到ul发现EventListener，判断是否为 li而不是空白处，然后删除
+
+两个优点: 1. 只给ul添加EventListener节省JS代码量  2. 新添加的li也在ul里，因此不用担心新li不会触发event的问题
