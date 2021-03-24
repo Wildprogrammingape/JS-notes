@@ -2,7 +2,7 @@
    element.appendChild()                添加子节点   
    element.prepend()		     添加子节点到顶部
    element.remove() 		     删除元素
- 
+   element.removeAttribute()          删除某个attribute
 
 2. document.createElement() 创建一个元素
    document.createTextNode() 创建文本节点，内容为string
